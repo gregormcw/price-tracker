@@ -38,10 +38,6 @@ def price_tracker(URL, headers, threshold, email_ad=None, pw=None, to_ad=None):
     print(price)
     print(currency)
 
-
-# URL = "https://www.dickssportinggoods.com/p/carhartt-a18-watch-hat-15cttmcrylcwtchcpapa/15cttmcrylcwtchcpapa?color=" \
-#       "Carhartt%20Brown"
-
 URL = "https://www.dickssportinggoods.com/p/strikeforce-linds-heritage-mens-performance-bowling-shoes-20sfcmlndshrtgr" \
       "hbstg/20sfcmlndshrtgrhbstg"
 
