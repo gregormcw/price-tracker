@@ -47,8 +47,3 @@ URL = "https://www.dickssportinggoods.com/p/strikeforce-linds-heritage-mens-perf
 
 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) "
                          "Version/14.0.1 Safari/605.1.15"}
-
-# threshold = 15.0
-# currency = 0
-#
-# price_tracker(URL, headers, threshold)
