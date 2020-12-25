@@ -17,9 +17,10 @@ def send_mail(email_ad, pw, to_ad):
     server.quit()
 
 
-def price_tracker(URL, headers, threshold, email_ad=None, pw=None, to_ad=None):
+def price_tracker(URL, headers, threshold, tar_currency, email_ad=None, pw=None, to_ad=None):
     page = requests.get(URL, headers=headers)
     soup = BeautifulSoup(page.content, "html.parser")
+    currency = 0
 
     title = soup.find("div", {"class": "title"})
     price = soup.find("div", {"class": "price"})
@@ -33,7 +34,7 @@ def price_tracker(URL, headers, threshold, email_ad=None, pw=None, to_ad=None):
     if price[0] == "$":
         currency = "USD"
 
-    if float(price[1:]) <= float(threshold):
+    if float(price[1:]) <= float(threshold) and currency == tar_currency:
         print("Deal time!")
         if email_ad and pw and to_ad:
             send_mail(email_ad, pw, to_ad)
