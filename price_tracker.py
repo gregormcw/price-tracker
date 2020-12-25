@@ -20,8 +20,15 @@ def send_mail(email_ad, pw, to_ad):
 def price_tracker(URL, headers, threshold, email_ad=None, pw=None, to_ad=None):
     page = requests.get(URL, headers=headers)
     soup = BeautifulSoup(page.content, "html.parser")
-    title = soup.find("div", {"class": "title"}).get_text()
-    price = soup.find("div", {"class": "price"}).get_text()
+
+    title = soup.find("div", {"class": "title"})
+    price = soup.find("div", {"class": "price"})
+    if title and price:
+        title = title.get_text()
+        price = price.get_text()
+    else:
+        print("Currently for use on Dick's Sporting Goods only.")
+        return
 
     if price[0] == "$":
         currency = "USD"
@@ -38,8 +45,10 @@ def price_tracker(URL, headers, threshold, email_ad=None, pw=None, to_ad=None):
     print(price)
     print(currency)
 
-URL = "https://www.dickssportinggoods.com/p/strikeforce-linds-heritage-mens-performance-bowling-shoes-20sfcmlndshrtgr" \
-      "hbstg/20sfcmlndshrtgrhbstg"
+URL = "https://www.dickssportinggoods.com/p/strikeforce-linds-heritage-mens-performance-bowling-shoes-20sfcmlndshrt" \
+      "grhbstg/20sfcmlndshrtgrhbstg"
 
 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) "
                          "Version/14.0.1 Safari/605.1.15"}
+
+threshold = 160.0
