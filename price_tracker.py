@@ -23,7 +23,7 @@ def price_tracker(URL, headers, threshold, tar_currency, email_ad=None, pw=None,
     :param URL: type str
         URL of target website
     :param headers: type str
-        User-agent information
+        User-agent information (can be found by searching for "User-Agent" in Google
     :param threshold: type float or int
         The maximum value you would like to pay for the selected item
     :param tar_currency: type str
