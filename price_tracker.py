@@ -18,6 +18,26 @@ def send_mail(email_ad, pw, to_ad):
 
 
 def price_tracker(URL, headers, threshold, tar_currency, email_ad=None, pw=None, to_ad=None):
+    """
+
+    :param URL: type str
+        URL of target website
+    :param headers: type str
+        User-agent information
+    :param threshold: type float or int
+        The maximum value you would like to pay for the selected item
+    :param tar_currency: type str
+        The currency in which you would like to pay for the product
+    :param email_ad: type str
+        The user's email address
+    :param pw: type str
+        The user's email password or key
+    :param to_ad: type str
+        The "to" email address: can be same as email_ad
+    :return: type str
+        Whether or not the product is available at or below the threshold value
+        If selected, an email be be sent to to_ad
+    """
     page = requests.get(URL, headers=headers)
     soup = BeautifulSoup(page.content, "html.parser")
     currency = 0
